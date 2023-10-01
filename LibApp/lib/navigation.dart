@@ -8,7 +8,13 @@ import './profile.dart';
 class Navigators extends StatefulWidget{
   final String className;
   final String stuName;
-  const Navigators({Key? key, required this.className, required this.stuName}) : super(key: key);
+  final String userId;
+  Navigators.withData({
+    required this.className,
+    required this.stuName,
+    required this.userId,
+  });
+  //const Navigators({Key? key, required this.className, required this.stuName, required this.userId}) : super(key: key);
   @override
   _Navigators createState() => _Navigators();
 }
@@ -18,7 +24,7 @@ class _Navigators  extends State<Navigators>{
 
   void initState() {
     super.initState();
-    bottomPage = [Home(), Dashboard(className: widget.className),Novel(),Profile(stuName: widget.stuName)];
+    bottomPage = [Home(), Dashboard(className: widget.className),Novel(),Profile(stuName: widget.stuName,userId:widget.userId)];
   }
   //final bottomPage=[Home(),Dashboard(className: widget.className),Novels(];
   int selectedItem=0;

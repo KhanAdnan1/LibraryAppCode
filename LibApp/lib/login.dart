@@ -16,20 +16,24 @@ class _LoginState extends State<Login> {
     final String password = _passwordController.text;
     final response = await http.post(
       //'http://192.168.193.107:5000/login'
-      Uri.parse('http://192.168.162.107:5000/login'),
+
+      //https://newclgsercer.onrender.com
+      Uri.parse('https://newclgsercer.onrender.com/login'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'user': username, 'password': password}),
     );
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final token = data['token'];
-      print(token);
+
       final className = data['className'];
       final stuName=data['stuName'];
+      final user=data['userId'];
+
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Navigators( className: className,stuName:stuName),
+          builder: (context) => Navigators.withData( className: className,stuName:stuName,userId: user),
         ),
       );
     }  else {
@@ -56,6 +60,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Login'),
       ),
       body:

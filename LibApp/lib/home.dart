@@ -31,7 +31,7 @@ class _Home extends State<Home>{
   void fetchImageBase64Data() async {
     try {
       // Make the HTTP GET request to your server
-      final response = await http.get(Uri.parse('http://192.168.162.107:5000/images'));
+      final response = await http.get(Uri.parse('https://newclgsercer.onrender.com/images'));
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         final fetchedImages = data['data'];
@@ -45,12 +45,12 @@ class _Home extends State<Home>{
 
       }
     } catch (error) {
-      print(error);
+
     }
   }
 
   Future<List<String>> fetchNoticeData() async {
-    final response = await http.get(Uri.parse('http://192.168.162.107:5000/notices'));
+    final response = await http.get(Uri.parse('https://newclgsercer.onrender.com/notices'));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body) as List<dynamic>;
@@ -63,13 +63,6 @@ class _Home extends State<Home>{
       throw Exception('Failed to load notice data');
     }
   }
-
-
-
-
-
-
-
 
 
   @override

@@ -16,7 +16,7 @@ class _Novel extends State<Novel>{
     _fetchPdfBooks();
   }
   Future<void> _fetchPdfBooks()async{
-    final url='http://192.168.193.107:5000/novels/pdf';
+    final url='https://newclgsercer.onrender.com/novels/pdf';
     //print('Fetching novels data');
     final response= await http.get(
       Uri.parse(url),
@@ -33,7 +33,7 @@ class _Novel extends State<Novel>{
         final novelPdfData = Uint8List.fromList(List<int>.from(pdfDataArray));
         final contentType = novelData['contentType'];
         novels.add(Novels(title: title, novelPdfData: novelPdfData, contentType: contentType));
-        print('Added Novel: $title');
+
       }
       setState(() {
         Novelspdf = novels;
