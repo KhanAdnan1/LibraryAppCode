@@ -1,4 +1,4 @@
-import 'dart:ui';
+//import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,11 +32,7 @@ class _Profile extends State<Profile>{
     }
   }
 
-  // void _removeImage() {
-  //   setState(() {
-  //     _image = null;
-  //   });
-  // }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -66,15 +62,6 @@ class _Profile extends State<Profile>{
                 onPressed: _pickImage,
                 child: Text('Pick Photo'),
               ),
-              //SizedBox(height: 20),
-              // if (_image != null)
-              //   ElevatedButton(
-              //     onPressed: _removeImage,
-              //     child: Text('Remove Photo'),
-              //   ),
-              // SizedBox(height: 20),
-              //
-              // Text(widget.stuName),
             ],
           ),
           ),
